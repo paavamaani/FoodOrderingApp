@@ -1,13 +1,11 @@
-import Restaurants from './components/Restaurants/Restaurants';
 import NavBar from './components/NavBar/NavBar';
-
-import { resData } from './common/mock/restaurants-mock';
+import Body from './components/Body/Body';
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <Restaurants resData={resData} />
+      <Body />
     </>
   );
 };

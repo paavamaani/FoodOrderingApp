@@ -3,11 +3,11 @@ import './Restaurants.css';
 import Restaurant from '../Restaurant/Restaurant';
 
 const Restaurants = (props) => {
-  const { resData } = props;
+  const { restaurantsData } = props;
 
   return (
     <div className='restaurants-wrapper'>
-      {resData.map((restaurant) => {
+      {restaurantsData.map((restaurant) => {
         return <Restaurant key={restaurant.data.id} restaurant={restaurant} />;
       })}
     </div>
