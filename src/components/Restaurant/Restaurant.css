@@ -1,0 +1,86 @@
+.restaurant-content:hover {
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
+  cursor: pointer;
+}
+
+.restaurant-content:hover .button-wrapper {
+  visibility: visible;
+}
+
+.restaurant-content {
+  padding: 20px 20px 60px;
+  border: 1px solid #fff;
+  position: relative;
+}
+
+.restaurant {
+  width: 254px;
+  position: relative;
+}
+
+.restaurant-image {
+  background: #eef0f5;
+  width: 254px;
+  height: 160px;
+  position: relative;
+}
+
+.info {
+  margin-top: 14px;
+}
+
+.name {
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.cuisines {
+  color: #686b78;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  color: #686b78;
+  font-size: 12px;
+}
+
+.icon {
+  color: #fff;
+  padding: 2px;
+}
+
+.star {
+  margin-right: 4px;
+}
+
+.green {
+  background-color: #48c479;
+}
+
+.orange {
+  background-color: #db7c38;
+}
+
+.button-wrapper {
+  position: absolute;
+  font-size: 13px;
+  visibility: hidden;
+  border-top: 1px solid #e9e9eb;
+  padding-top: 14px;
+  margin-top: 14px;
+  left: 20px;
+  right: 20px;
+  bottom: 14px;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  color: #5d8ed5;
+}
