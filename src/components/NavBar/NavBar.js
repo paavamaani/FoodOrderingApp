@@ -4,10 +4,12 @@ import './NavBar.css';
 
 import { SiIfood } from 'react-icons/si';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { TfiUser } from 'react-icons/tfi';
-import { FaOpencart } from 'react-icons/fa';
+
+import useOnlineStatus from '../../common/utils/useOnlineStatus';
 
 const NavBar = () => {
+  const onlineStatus = useOnlineStatus();
+
   return (
     <header className='header'>
       <div className='navbar'>
@@ -21,6 +23,11 @@ const NavBar = () => {
           </span>
         </div>
         <ul className='nav-list'>
+          <li className='nav-items'>
+            <div className='nav-item'>
+              Online Status: {onlineStatus ? '🟢' : '🔴'}
+            </div>
+          </li>
           <li className='nav-items'>
             <div className='nav-item'>
               <Link className='link' to='/'>
@@ -40,26 +47,6 @@ const NavBar = () => {
               <Link className='link' to='/contact'>
                 Contact
               </Link>
-            </div>
-          </li>
-          <li className='nav-items'>
-            <div className='nav-item'>
-              <a className='link'>
-                <span className='link-icon'>
-                  <TfiUser size='18' />
-                </span>
-                <span> Sign in </span>
-              </a>
-            </div>
-          </li>
-          <li className='nav-items'>
-            <div className='nav-item'>
-              <a className='link'>
-                <span className='link-icon'>
-                  <FaOpencart size='18' />
-                </span>
-                <span> Cart </span>
-              </a>
             </div>
           </li>
         </ul>
