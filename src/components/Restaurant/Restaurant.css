@@ -1,3 +1,7 @@
+.restaurant-wrapper {
+  text-decoration: none;
+}
+
 .restaurant-content:hover {
   border-color: #d3d5df;
   box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
@@ -33,6 +37,7 @@
 .name {
   font-weight: 500;
   word-break: break-word;
+  color: #000000;
 }
 
 .cuisines {

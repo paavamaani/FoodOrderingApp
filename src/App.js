@@ -1,11 +1,11 @@
 import NavBar from './components/NavBar/NavBar';
-import Body from './components/Body/Body';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <Body />
+      <Outlet />
     </>
   );
 };

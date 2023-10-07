@@ -1,33 +1,68 @@
+import { useEffect, useState } from 'react';
+
 import './Body.css';
+
+import '../../common/mock/restaurants';
+import { RESTAURANTS_API } from '../../common/constants';
 
 import FilterBar from '../FilterBar/FilterBar';
 import Restaurants from '../Restaurants/Restaurants';
-import { resData } from '../../common/mock/restaurants-mock';
-
-import { useState } from 'react';
+import Shimmer from '../Shimmer/Shimmer';
 
 const Body = () => {
-  const [restaurantsData, setRestaurantsData] = useState(resData);
+  const [restaurantsData, setRestaurantsData] = useState([]);
 
   const onClickRating = () => {
-    const topRestaurants = resData.filter((restaurant) => {
-      return restaurant.data.avgRating >= 4;
+    const topRestaurants = restaurantsData.filter((restaurant) => {
+      return restaurant.info.avgRating >= 4;
     });
 
     setRestaurantsData(topRestaurants);
   };
 
   const onClickDeliveryTime = () => {
-    const fastDeliveryRestaurants = [...resData].sort((res1, res2) => {
-      return res1.data.deliveryTime - res2.data.deliveryTime;
+    fetchRestaurants();
+    const fastDeliveryRestaurants = [...restaurantsData].sort((res1, res2) => {
+      return res1.info.sla.deliveryTime - res2.info.sla.deliveryTime;
     });
 
     setRestaurantsData(fastDeliveryRestaurants);
   };
 
   const onClickRelevance = () => {
-    setRestaurantsData(resData);
+    setRestaurantsData([]);
+    fetchRestaurants();
   };
+
+  const fetchRestaurants = async () => {
+    const data = await fetch(RESTAURANTS_API);
+    const response = await data.json();
+
+    setRestaurantsData(response);
+  };
+
+  const onSearch = (event) => {
+    const restaurantName = event.currentTarget.value;
+
+    if (restaurantName) {
+      const searchResults = restaurantsData.filter((restaurant) => {
+        return restaurant?.info?.name
+          ?.toLowerCase()
+          .includes(restaurantName.toLowerCase());
+      });
+      if (searchResults.length > 0) setRestaurantsData(searchResults);
+    } else {
+      fetchRestaurants();
+    }
+  };
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  if (restaurantsData.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className='body'>
@@ -36,6 +71,7 @@ const Body = () => {
         onClickRelevance={onClickRelevance}
         onClickDeliveryTime={onClickDeliveryTime}
         onClickRating={onClickRating}
+        onSearch={onSearch}
       />
       <Restaurants restaurantsData={restaurantsData} />
     </div>

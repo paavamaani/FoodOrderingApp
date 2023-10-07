@@ -1,10 +1,9 @@
+import { Link } from 'react-router-dom';
+
 import './NavBar.css';
 
 import { SiIfood } from 'react-icons/si';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { IoSearchOutline } from 'react-icons/io5';
-import { BiSolidOffer } from 'react-icons/bi';
-import { BiSupport } from 'react-icons/bi';
 import { TfiUser } from 'react-icons/tfi';
 import { FaOpencart } from 'react-icons/fa';
 
@@ -24,33 +23,23 @@ const NavBar = () => {
         <ul className='nav-list'>
           <li className='nav-items'>
             <div className='nav-item'>
-              <a className='link'>
-                <span className='link-icon'>
-                  <IoSearchOutline size='18' />
-                </span>
-                <span> Search </span>
-              </a>
+              <Link className='link' to='/'>
+                Home
+              </Link>
             </div>
           </li>
           <li className='nav-items'>
             <div className='nav-item'>
-              <a className='link'>
-                <span className='link-icon'>
-                  <BiSolidOffer size='18' />
-                </span>
-                <span> Offers </span>
-                <span className='promotion-text'> New </span>
-              </a>
+              <Link className='link' to='/about'>
+                About
+              </Link>
             </div>
           </li>
           <li className='nav-items'>
             <div className='nav-item'>
-              <a className='link'>
-                <span className='link-icon'>
-                  <BiSupport size='18' />
-                </span>
-                <span> Help </span>
-              </a>
+              <Link className='link' to='/contact'>
+                Contact
+              </Link>
             </div>
           </li>
           <li className='nav-items'>

@@ -8,7 +8,7 @@ const Restaurants = (props) => {
   return (
     <div className='restaurants-wrapper'>
       {restaurantsData.map((restaurant) => {
-        return <Restaurant key={restaurant.data.id} restaurant={restaurant} />;
+        return <Restaurant key={restaurant.info.id} restaurant={restaurant} />;
       })}
     </div>
   );

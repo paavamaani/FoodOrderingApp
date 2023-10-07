@@ -70,6 +70,8 @@
   display: flex;
   align-items: center;
   padding-left: 28px;
+  text-decoration: none;
+  color: black;
 }
 
 .link-icon {
