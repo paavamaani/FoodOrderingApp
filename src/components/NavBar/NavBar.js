@@ -1,14 +1,16 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './NavBar.css';
 
 import { SiIfood } from 'react-icons/si';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-
 import useOnlineStatus from '../../common/utils/useOnlineStatus';
+import UserContext from '../../common/contexts/UserContext';
 
 const NavBar = () => {
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <header className='header'>
@@ -46,6 +48,13 @@ const NavBar = () => {
             <div className='nav-item'>
               <Link className='link' to='/contact'>
                 Contact
+              </Link>
+            </div>
+          </li>
+          <li className='nav-items'>
+            <div className='nav-item'>
+              <Link className='link' to='/contact'>
+                {loggedInUser}
               </Link>
             </div>
           </li>

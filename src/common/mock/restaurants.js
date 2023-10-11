@@ -11,6 +11,7 @@ fetchMock.get('/api/restaurants', [
       costForTwo: '₹350 for two',
       cuisines: ['Burgers', 'American'],
       avgRating: 4.1,
+      promoted: true,
       feeDetails: {
         restaurantId: '271483',
         fees: [

@@ -47,4 +47,15 @@ const Restaurant = (props) => {
   );
 };
 
+export const promotedRestaurant = (Restaurant) => {
+  return (props) => {
+    return (
+      <>
+        <p className='promoted'> Promoted </p>
+        <Restaurant {...props} />
+      </>
+    );
+  };
+};
+
 export default Restaurant;

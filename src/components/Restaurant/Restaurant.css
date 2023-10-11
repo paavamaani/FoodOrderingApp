@@ -89,3 +89,12 @@
   text-align: center;
   color: #5d8ed5;
 }
+
+.promoted {
+  padding: 6px;
+  position: absolute;
+  margin: 15px;
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
