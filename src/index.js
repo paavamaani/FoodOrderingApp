@@ -7,6 +7,9 @@ import './index.css';
 import App from './App';
 import Body from './components/Body/Body';
 import RestaurantMenu from './components/RestaurantMenu/RestaurantMenu';
+import Demo from './components/Demo/DemoMemo';
+import DemoWithoutMemo from './components/Demo/DemoWithoutMemo';
+import DemoWithUseRef from './components/Demo/DemoWithUseRef';
 import Error from './components/Error/Error';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -42,6 +45,16 @@ const appRouter = createBrowserRouter([
       {
         path: '/restaurant/:resId',
         element: <RestaurantMenu />,
+      },
+      {
+        path: '/demo',
+        element: (
+          <>
+            <Demo />
+            <DemoWithoutMemo />
+            <DemoWithUseRef />
+          </>
+        ),
       },
     ],
     errorElement: <Error />,

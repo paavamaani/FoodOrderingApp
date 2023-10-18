@@ -1,11 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: arial, Helvetica, sans-serif;
-}
-
-body {
-  margin: 0;
-}
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

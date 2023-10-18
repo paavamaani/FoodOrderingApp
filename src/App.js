@@ -1,14 +1,16 @@
 import { useContext } from 'react';
+import { Provider } from 'react-redux';
 
 import NavBar from './components/NavBar/NavBar';
 import { Outlet } from 'react-router-dom';
 import UserContext from './common/contexts/UserContext';
+import appStore from './common/stores/appStore';
 
 const App = () => {
   const { loggedInUser } = useContext(UserContext);
 
   return (
-    <>
+    <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: loggedInUser }}>
         {/**
          * we can just use useContext to use the context.
@@ -18,7 +20,7 @@ const App = () => {
         <NavBar />
         <Outlet />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 

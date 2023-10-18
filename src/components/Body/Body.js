@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 
 import './Body.css';
 
-import '../../common/mock/restaurants';
-import { RESTAURANTS_API } from '../../common/constants';
+// import '../../common/mock/restaurants';
+// import { RESTAURANTS_API } from '../../common/constants';
+import { restaurantsData as resData } from '../../common/mock/data/restaurants-data';
 
 import FilterBar from '../FilterBar/FilterBar';
 import Restaurants from '../Restaurants/Restaurants';
 import Shimmer from '../Shimmer/Shimmer';
 
 const Body = () => {
-  const [restaurantsData, setRestaurantsData] = useState([]);
+  const [restaurantsData, setRestaurantsData] = useState(resData);
 
   const onClickRating = () => {
     const topRestaurants = restaurantsData.filter((restaurant) => {
@@ -34,12 +35,12 @@ const Body = () => {
     fetchRestaurants();
   };
 
-  const fetchRestaurants = async () => {
-    const data = await fetch(RESTAURANTS_API);
-    const response = await data.json();
+  // const fetchRestaurants = async () => {
+  //   const data = await fetch(RESTAURANTS_API);
+  //   const response = await data.json();
 
-    setRestaurantsData(response);
-  };
+  //   setRestaurantsData(response);
+  // };
 
   const onSearch = (event) => {
     const restaurantName = event.currentTarget.value;
@@ -56,9 +57,9 @@ const Body = () => {
     }
   };
 
-  useEffect(() => {
-    fetchRestaurants();
-  }, []);
+  // useEffect(() => {
+  //   fetchRestaurants();
+  // }, []);
 
   if (restaurantsData.length === 0) {
     return <Shimmer />;

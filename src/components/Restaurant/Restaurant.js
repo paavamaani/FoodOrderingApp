@@ -1,18 +1,31 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './Restaurant.css';
 
 import { IoStar } from 'react-icons/io5';
 
 import { CDN_URL } from '../../common/constants';
+import { addName } from '../../common/stores/restaurantSlice';
 
 const Restaurant = (props) => {
   const { id, name, cloudinaryImageId, cuisines, costForTwo, sla, avgRating } =
     props.restaurant?.info;
 
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    dispatch(addName('Hari'));
+  };
+
   return (
-    <Link id={id} className='restaurant-wrapper' to={`/restaurant/${id}`}>
-      <div className='restaurant-content'>
+    <Link
+      data-testid='resId'
+      id={id}
+      className='restaurant-wrapper'
+      to={`/restaurant/${id}`}
+    >
+      <div className='restaurant-content' onClick={handleOnClick}>
         <div className='restaurant'>
           <div className='restaurant-image'>
             <img

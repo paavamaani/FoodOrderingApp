@@ -7,10 +7,14 @@ import { SiIfood } from 'react-icons/si';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import useOnlineStatus from '../../common/utils/useOnlineStatus';
 import UserContext from '../../common/contexts/UserContext';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const restaurantItems = useSelector((store) => store.restaurant.items);
+
+  console.log(restaurantItems);
 
   return (
     <header className='header'>
@@ -53,8 +57,15 @@ const NavBar = () => {
           </li>
           <li className='nav-items'>
             <div className='nav-item'>
+              <Link className='link' to='/demo'>
+                Demo
+              </Link>
+            </div>
+          </li>
+          <li className='nav-items'>
+            <div className='nav-item'>
               <Link className='link' to='/contact'>
-                {loggedInUser}
+                {loggedInUser} - {restaurantItems.length}
               </Link>
             </div>
           </li>
